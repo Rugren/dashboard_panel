@@ -1,0 +1,504 @@
+[{
+  "_id": {
+    "$oid": "64cd45541d350d132060a192"
+  },
+  "nombre": "Audifonos Blancosss",
+  "descripcion": "Blanco",
+  "precio_venta": 225,
+  "precio_regular": 345,
+  "slug": "tipo-audifonos-Blan2",
+  "brand": "Sin Marca",
+  "currency": "USD ($)",
+  "status": false,
+  "availability": false,
+  "isBestSeller": false,
+  "isNewArrival": false,
+  "isFeatured": false,
+  "isSpecialOffer": false,
+  "created_at": {
+    "$date": "2023-07-26T04:26:25.490Z"
+  },
+  "createdAt": {
+    "$date": "2023-08-04T18:37:08.057Z"
+  },
+  "updatedAt": {
+    "$date": "2023-08-04T19:55:22.413Z"
+  },
+  "categoria": [
+    "Tecnologia"
+  ],
+  "imageUrls": [
+    "../../assets/img/products/technology/3.jpg",
+    "../../assets/img/products/technology/2.jpg",
+    "../../assets/img/products/technology/1.jpg",
+    "../../assets/img/products/technology/4.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "64cd45871d350d132060a194"
+  },
+  "nombre": "Tableta",
+  "descripcion": "Plateado",
+  "precio_venta": 225,
+  "precio_regular": 345,
+  "slug": "tipo-plateado1",
+  "brand": "Sin Marca",
+  "currency": "USD ($)",
+  "status": false,
+  "availability": false,
+  "isBestSeller": false,
+  "isNewArrival": false,
+  "isFeatured": false,
+  "isSpecialOffer": false,
+  "created_at": {
+    "$date": "2023-07-24T04:26:25.490Z"
+  },
+  "createdAt": {
+    "$date": "2023-08-04T18:37:59.044Z"
+  },
+  "updatedAt": {
+    "$date": "2023-08-04T18:37:59.044Z"
+  },
+  "categoria": [
+    "Tecnologia"
+  ],
+  "imageUrls": [
+    "../../assets/img/products/technology/2.jpg",
+    "../../assets/img/products/technology/3.jpg",
+    "../../assets/img/products/technology/1.jpg",
+    "../../assets/img/products/technology/4.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "64cd45a61d350d132060a196"
+  },
+  "nombre": "Tableta platina",
+  "descripcion": "Plateado",
+  "precio_venta": 225,
+  "precio_regular": 345,
+  "slug": "tipo-plateado2",
+  "brand": "Sin Marca",
+  "currency": "USD ($)",
+  "status": false,
+  "availability": false,
+  "isBestSeller": false,
+  "isNewArrival": false,
+  "isFeatured": false,
+  "isSpecialOffer": false,
+  "created_at": {
+    "$date": "2023-07-20T04:26:25.490Z"
+  },
+  "createdAt": {
+    "$date": "2023-08-04T18:38:30.427Z"
+  },
+  "updatedAt": {
+    "$date": "2023-08-04T18:38:30.427Z"
+  },
+  "categoria": [
+    "Tecnologia"
+  ],
+  "imageUrls": [
+    "../../assets/img/products/technology/4.jpg",
+    "../../assets/img/products/technology/2.jpg",
+    "../../assets/img/products/technology/3.jpg",
+    "../../assets/img/products/technology/1.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "64cd46221d350d132060a199"
+  },
+  "nombre": "Computadora Negra",
+  "descripcion": "Negra",
+  "precio_venta": 225,
+  "precio_regular": 345,
+  "slug": "tipo-negra2",
+  "brand": "Sin Marca",
+  "currency": "USD ($)",
+  "status": false,
+  "availability": false,
+  "isBestSeller": false,
+  "isNewArrival": false,
+  "isFeatured": false,
+  "isSpecialOffer": false,
+  "created_at": {
+    "$date": "2023-07-20T04:26:25.490Z"
+  },
+  "createdAt": {
+    "$date": "2023-08-04T18:40:34.256Z"
+  },
+  "updatedAt": {
+    "$date": "2023-08-04T18:40:34.256Z"
+  },
+  "categoria": [
+    "Tecnologia"
+  ],
+  "imageUrls": [
+    "../../assets/img/products/technology/3.jpg",
+    "../../assets/img/products/technology/2.jpg",
+    "../../assets/img/products/technology/4.jpg",
+    "../../assets/img/products/technology/1.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "64cd46391d350d132060a19b"
+  },
+  "nombre": "Computadora Negra",
+  "descripcion": "Negra",
+  "precio_venta": 225,
+  "precio_regular": 345,
+  "slug": "tipo-negra5",
+  "brand": "Sin Marca",
+  "currency": "USD ($)",
+  "status": false,
+  "availability": false,
+  "isBestSeller": false,
+  "isNewArrival": false,
+  "isFeatured": false,
+  "isSpecialOffer": false,
+  "created_at": {
+    "$date": "2023-07-20T04:26:25.490Z"
+  },
+  "createdAt": {
+    "$date": "2023-08-04T18:40:57.864Z"
+  },
+  "updatedAt": {
+    "$date": "2023-08-04T18:40:57.864Z"
+  },
+  "categoria": [
+    "Tecnologia"
+  ],
+  "imageUrls": [
+    "../../assets/img/products/technology/1.jpg",
+    "../../assets/img/products/technology/3.jpg",
+    "../../assets/img/products/technology/2.jpg",
+    "../../assets/img/products/technology/4.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "64cd4dac99cd22eab31106db"
+  },
+  "nombre": "Computadora Negra",
+  "descripcion": "Negra",
+  "precio_venta": 225,
+  "precio_regular": 345,
+  "slug": "tipo-negra4",
+  "brand": "Sin Marca",
+  "currency": "USD ($)",
+  "status": false,
+  "availability": false,
+  "isBestSeller": false,
+  "isNewArrival": false,
+  "isFeatured": false,
+  "isSpecialOffer": false,
+  "created_at": {
+    "$date": "2023-07-20T04:26:25.490Z"
+  },
+  "createdAt": {
+    "$date": "2023-08-04T19:12:44.634Z"
+  },
+  "updatedAt": {
+    "$date": "2023-08-04T19:12:44.634Z"
+  },
+  "categoria": [
+    "Tecnologia"
+  ],
+  "imageUrls": [
+    "../../assets/img/products/technology/1.jpg",
+    "../../assets/img/products/technology/3.jpg",
+    "../../assets/img/products/technology/2.jpg",
+    "../../assets/img/products/technology/4.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "64cd4e1099cd22eab31106dd"
+  },
+  "nombre": "Computadora Negra",
+  "descripcion": "Negra",
+  "precio_venta": 225,
+  "precio_regular": 345,
+  "slug": "tipo-negra3",
+  "brand": "Sin Marca",
+  "currency": "USD ($)",
+  "status": false,
+  "availability": false,
+  "isBestSeller": false,
+  "isNewArrival": false,
+  "isFeatured": false,
+  "isSpecialOffer": false,
+  "created_at": {
+    "$date": "2023-07-20T04:26:25.490Z"
+  },
+  "createdAt": {
+    "$date": "2023-08-04T19:14:24.115Z"
+  },
+  "updatedAt": {
+    "$date": "2023-08-04T19:14:24.115Z"
+  },
+  "categoria": [
+    "Tecnologia"
+  ],
+  "imageUrls": [
+    "../../assets/img/products/technology/1.jpg",
+    "../../assets/img/products/technology/3.jpg",
+    "../../assets/img/products/technology/2.jpg",
+    "../../assets/img/products/technology/4.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "64d11e95d26985ee46fb4d8a"
+  },
+  "nombre": "Computadora Negras",
+  "descripcion": "Negra",
+  "precio_venta": 225,
+  "precio_regular": 345,
+  "slug": "tipo-negra4",
+  "brand": "Sin Marca",
+  "currency": "USD ($)",
+  "status": false,
+  "availability": false,
+  "isBestSeller": false,
+  "isNewArrival": false,
+  "isFeatured": false,
+  "isSpecialOffer": false,
+  "created_at": {
+    "$date": "2023-07-20T04:26:25.490Z"
+  },
+  "createdAt": {
+    "$date": "2023-08-07T16:40:53.702Z"
+  },
+  "updatedAt": {
+    "$date": "2023-08-07T16:40:53.702Z"
+  },
+  "categoria": [
+    "Tecnologia"
+  ],
+  "imageUrls": [
+    "../../assets/img/products/technology/1.jpg",
+    "../../assets/img/products/technology/3.jpg",
+    "../../assets/img/products/technology/2.jpg",
+    "../../assets/img/products/technology/4.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "64d11eb0d26985ee46fb4d8c"
+  },
+  "nombre": "Microfono Blnaco",
+  "descripcion": "Negra",
+  "precio_venta": 225,
+  "precio_regular": 345,
+  "slug": "tipo-micro-blanco1",
+  "brand": "Sin Marca",
+  "currency": "USD ($)",
+  "status": false,
+  "availability": false,
+  "isBestSeller": false,
+  "isNewArrival": false,
+  "isFeatured": false,
+  "isSpecialOffer": false,
+  "created_at": {
+    "$date": "2023-07-20T04:26:25.490Z"
+  },
+  "createdAt": {
+    "$date": "2023-08-07T16:41:20.148Z"
+  },
+  "updatedAt": {
+    "$date": "2023-08-07T16:41:20.148Z"
+  },
+  "categoria": [
+    "Tecnologia"
+  ],
+  "imageUrls": [
+    "../../assets/img/products/technology/2.jpg",
+    "../../assets/img/products/technology/1.jpg",
+    "../../assets/img/products/technology/3.jpg",
+    "../../assets/img/products/technology/4.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "64d11ec2d26985ee46fb4d8e"
+  },
+  "nombre": "Microfono Negro",
+  "descripcion": "Negra",
+  "precio_venta": 225,
+  "precio_regular": 345,
+  "slug": "tipo-micro-negro1",
+  "brand": "Sin Marca",
+  "currency": "USD ($)",
+  "status": false,
+  "availability": false,
+  "isBestSeller": false,
+  "isNewArrival": false,
+  "isFeatured": false,
+  "isSpecialOffer": false,
+  "created_at": {
+    "$date": "2023-07-20T04:26:25.490Z"
+  },
+  "createdAt": {
+    "$date": "2023-08-07T16:41:38.808Z"
+  },
+  "updatedAt": {
+    "$date": "2023-08-07T16:41:38.808Z"
+  },
+  "categoria": [
+    "Tecnologia"
+  ],
+  "imageUrls": [
+    "../../assets/img/products/technology/2.jpg",
+    "../../assets/img/products/technology/1.jpg",
+    "../../assets/img/products/technology/3.jpg",
+    "../../assets/img/products/technology/4.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "64d11ecfd26985ee46fb4d90"
+  },
+  "nombre": "Microfono Gris",
+  "descripcion": "Negra",
+  "precio_venta": 225,
+  "precio_regular": 345,
+  "slug": "tipo-micro-gris1",
+  "brand": "Sin Marca",
+  "currency": "USD ($)",
+  "status": false,
+  "availability": false,
+  "isBestSeller": false,
+  "isNewArrival": false,
+  "isFeatured": false,
+  "isSpecialOffer": false,
+  "created_at": {
+    "$date": "2023-07-20T04:26:25.490Z"
+  },
+  "createdAt": {
+    "$date": "2023-08-07T16:41:51.581Z"
+  },
+  "updatedAt": {
+    "$date": "2023-08-07T16:41:51.581Z"
+  },
+  "categoria": [
+    "Tecnologia"
+  ],
+  "imageUrls": [
+    "../../assets/img/products/technology/2.jpg",
+    "../../assets/img/products/technology/1.jpg",
+    "../../assets/img/products/technology/3.jpg",
+    "../../assets/img/products/technology/4.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "64d11eeed26985ee46fb4d92"
+  },
+  "nombre": "Teclado logitech",
+  "descripcion": "Negra",
+  "precio_venta": 225,
+  "precio_regular": 345,
+  "slug": "tipo-teclado-logitech",
+  "brand": "Sin Marca",
+  "currency": "USD ($)",
+  "status": false,
+  "availability": false,
+  "isBestSeller": false,
+  "isNewArrival": false,
+  "isFeatured": false,
+  "isSpecialOffer": false,
+  "created_at": {
+    "$date": "2023-07-20T04:26:25.490Z"
+  },
+  "createdAt": {
+    "$date": "2023-08-07T16:42:22.171Z"
+  },
+  "updatedAt": {
+    "$date": "2023-08-07T16:42:22.171Z"
+  },
+  "categoria": [
+    "Tecnologia"
+  ],
+  "imageUrls": [
+    "../../assets/img/products/technology/2.jpg",
+    "../../assets/img/products/technology/1.jpg",
+    "../../assets/img/products/technology/3.jpg",
+    "../../assets/img/products/technology/4.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "64d11efcd26985ee46fb4d94"
+  },
+  "nombre": "Mouse logitech",
+  "descripcion": "Negra",
+  "precio_venta": 225,
+  "precio_regular": 345,
+  "slug": "tipo-mouse-logitech",
+  "brand": "Sin Marca",
+  "currency": "USD ($)",
+  "status": false,
+  "availability": false,
+  "isBestSeller": false,
+  "isNewArrival": false,
+  "isFeatured": false,
+  "isSpecialOffer": false,
+  "created_at": {
+    "$date": "2023-07-20T04:26:25.490Z"
+  },
+  "createdAt": {
+    "$date": "2023-08-07T16:42:36.224Z"
+  },
+  "updatedAt": {
+    "$date": "2023-08-07T16:42:36.224Z"
+  },
+  "categoria": [
+    "Tecnologia"
+  ],
+  "imageUrls": [
+    "../../assets/img/products/technology/2.jpg",
+    "../../assets/img/products/technology/1.jpg",
+    "../../assets/img/products/technology/3.jpg",
+    "../../assets/img/products/technology/4.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "64d11f01d26985ee46fb4d96"
+  },
+  "nombre": "Mouse logitech1",
+  "descripcion": "Negra",
+  "precio_venta": 225,
+  "precio_regular": 345,
+  "slug": "tipo-mouse-logitech1",
+  "brand": "Sin Marca",
+  "currency": "USD ($)",
+  "status": false,
+  "availability": false,
+  "isBestSeller": false,
+  "isNewArrival": false,
+  "isFeatured": false,
+  "isSpecialOffer": false,
+  "created_at": {
+    "$date": "2023-07-20T04:26:25.490Z"
+  },
+  "createdAt": {
+    "$date": "2023-08-07T16:42:41.884Z"
+  },
+  "updatedAt": {
+    "$date": "2023-08-07T16:42:41.884Z"
+  },
+  "categoria": [
+    "Tecnologia"
+  ],
+  "imageUrls": [
+    "../../assets/img/products/technology/2.jpg",
+    "../../assets/img/products/technology/1.jpg",
+    "../../assets/img/products/technology/3.jpg",
+    "../../assets/img/products/technology/4.jpg"
+  ]
+}]

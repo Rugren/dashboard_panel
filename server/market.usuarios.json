@@ -1,0 +1,21 @@
+[{
+  "_id": {
+    "$oid": "64c09c996827cf2a46cb6788"
+  },
+  "email": "alicesmith@example.com",
+  "roles": [],
+  "tags": [],
+  "online": false,
+  "isVerified": false,
+  "receivePromoMessage": false,
+  "created_at": {
+    "$date": "2023-07-26T04:09:59.122Z"
+  },
+  "createdAt": {
+    "$date": "2023-07-28T17:13:17.221Z"
+  },
+  "updatedAt": {
+    "$date": "2023-07-28T17:13:17.221Z"
+  },
+  "nombre": "Alice Smith"
+}]

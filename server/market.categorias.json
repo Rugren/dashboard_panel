@@ -1,0 +1,32 @@
+[{
+  "_id": {
+    "$oid": "64cd63701d5a48346408a728"
+  },
+  "created_at": {
+    "$date": "2023-08-04T20:45:36.479Z"
+  },
+  "createdAt": {
+    "$date": "2023-08-04T20:45:36.485Z"
+  },
+  "updatedAt": {
+    "$date": "2023-08-04T20:48:09.719Z"
+  },
+  "descripcion": "Todo tipo de Audifonos y microfonos",
+  "nombre": "Audifonos"
+},
+{
+  "_id": {
+    "$oid": "64cd63d71d5a48346408a730"
+  },
+  "created_at": {
+    "$date": "2023-08-04T20:47:19.269Z"
+  },
+  "createdAt": {
+    "$date": "2023-08-04T20:47:19.270Z"
+  },
+  "updatedAt": {
+    "$date": "2023-08-04T20:47:19.270Z"
+  },
+  "descripcion": "Todo tipo de Audifonos",
+  "nombre": "Audifonos"
+}]
