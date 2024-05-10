@@ -1,30 +1,32 @@
 # dashboard_panel
- Tablero dashboard para gestionar nuestro panel de administrador
+ Tablero dashboard para gestionar nuestro panel de administrador.
+
+ <hr>
 
 <p>Proyecto realizado frontend en Angular y conectada la Base de Datos con MongoDB. </p>
 <p>También utilizado Postman para las comprobaciones de la BD.</p>
 
 <p>-1º Instalado/Instalar (para tener todas las dependencias):</p>
-<p>__npm i__ (para toda la paquetería completa de Node.js).</p>
-<p>-1.1º __npm run dev__ (te deberá aparecer en la consola el mensaje "Conectado al puerto 3000", sino no se habrá instalado correctamente el paquete Node.js)</p>
+<p>npm i (para toda la paquetería completa de Node.js).</p>
+<p>-1.1º npm run dev (te deberá aparecer en la consola el mensaje "Conectado al puerto 3000", sino no se habrá instalado correctamente el paquete Node.js)</p>
 
 <hr>
 
 <p>PARA EJECUTAR EL PROGRAMA:</p>
 <p>- Para abrir el Backend;</p>
-<p>1º Abrimos la carpeta del proyecto dashboard_panel y entramos en carpeta server</p>
-<p>**cd + _la ruta de nuestra carpeta_**</p>
-<p>2.0º Ejecutamos en la consola: __npm start__</p>
-<p>2.1º Vamos al siguiente puerto para comprobar que funciona nuestra API _http://localhost:3000/api-docs/_</p>
-<p>3º Para comprobar que se está ejecutando correctamente la Base de Datos, abrimos **Postman** y ponemos, por ejemplo, el siguiente enlace:</p>
-<p>_http://localhost:3000/productos/_</p>
+<p>1º Abrimos la carpeta del proyecto dashboard panel y entramos en carpeta server</p>
+<p>cd + la ruta de nuestra carpeta</p>
+<p>2.0º Ejecutamos en la consola: npm start</p>
+<p>2.1º Vamos al siguiente puerto para comprobar que funciona nuestra API http://localhost:3000/api-docs/</p>
+<p>3º Para comprobar que se está ejecutando correctamente la Base de Datos, abrimos Postman y ponemos, por ejemplo, el siguiente enlace:</p>
+<p>http://localhost:3000/productos/</p>
 <p>En él nos deberán salir todos los productos que tenemos ya creados.</p>
 
 <p>- Para abrir el Frontend;</p>
-<p>1º Abrimos la carpeta del proyecto dashboard_panel y entramos en carpeta server</p>
-<p>**cd _(y la ruta de nuestra carpeta)_**</p>
-<p>2º Ejecutamos en la consola (Para abrir el front end de Angular): **ng serve -o**</p>
-<p>3º Si nos se nos abre el programa automáticamente, abrir el puerto _http://localhost:4200/_ y comprobar que funciona correctamente.</p>
+<p>1º Abrimos la carpeta del proyecto dashboard panel y entramos en carpeta server</p>
+<p>cd (y la ruta de nuestra carpeta)</p>
+<p>2º Ejecutamos en la consola (Para abrir el front end de Angular): ng serve -o</p>
+<p>3º Si nos se nos abre el programa automáticamente, abrir el puerto http://localhost:4200/ y comprobar que funciona correctamente.</p>
 
 <hr>
 
