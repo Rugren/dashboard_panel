@@ -1,5 +1,4 @@
 <!-- <p>container works!</p> -->
-
 <div>
     <!-- ============================================================== -->
     <!-- Bread crumb and right sidebar toggle -->
@@ -10,7 +9,7 @@
                 <h3 class="text-themecolor">navegacion1</h3>
             </div>
         </div>
-        <h2>23 En existencia</h2>
+        <h2>{{ datas?.length }}: En existencia</h2>
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -77,12 +76,15 @@
                                             <div>data</div>
                                         </td>
                                         <td class="text-nowrap">
-                                            <a data-toggle="tooltip" data-original-title="View">
+                                            <a data-toggle="tooltip" data-original-title="Ver">
                                                 <i class="fa fa-eye text-inverse m-r-10"></i> </a>
-                                            <a data-toggle="tooltip" data-original-title="Edit">
+
+                                                <!-- El botón de editar (que es un lapiz) no se muestra, no se ve -->
+                                            <a data-toggle="tooltip" data-original-title="Editar">
                                                 <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
-                                            <a data-toggle="tooltip" data-original-title="Close"> <i
-                                                    class="fa fa-close text-danger"></i> </a>
+
+                                            <a data-toggle="tooltip" data-original-title="Cerrar">
+                                                <i class="fa fa-close text-danger"></i> </a>
                                         </td>
                                     </tr>
 
@@ -104,5 +106,23 @@
     <!-- End Bread crumb and right sidebar toggle -->
     <!-- ============================================================== -->
 
-
 </div>
+
+
+<!-- AGREGADOS LOS SCRIPTS PARA QUE COGAN LOS ESTILOS Y FORMAS EN LOS ICONOS, entre otros -->
+<!-- Agrega jQuery (si aún no está incluido) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Agrega Font Awesome (si aún no está incluido) -->
+<!-- Reemplaza 'versión' con la versión específica que estés utilizando -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<!-- Después de incluir jQuery y Font Awesome, agrega el script de inicialización de tooltips 
+Este tooltips es para que se vean los iconos de Ver, Editar y Cerrar
+En referencia a: <a data-toggle="tooltip" data-original-title="Ver"> 
+-->
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
