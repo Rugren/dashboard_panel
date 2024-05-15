@@ -1,8 +1,8 @@
-import { FormarNamePipe } from './formar-name.pipe';
+import { FormatNamePipe } from './format-name.pipe';
 
 describe('FormarNamePipe', () => {
   it('create an instance', () => {
-    const pipe = new FormarNamePipe();
+    const pipe = new FormatNamePipe();
     expect(pipe).toBeTruthy();
   });
 });
