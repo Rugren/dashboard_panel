@@ -74,7 +74,8 @@
                                 <tbody>
                                     <!-- Aquí vamos a hacer un bucle for que nos muestre nuestros datos de la BD 
                                     Después hecho un index que nos muestre el recorrido del bucle for -->
-                                    <tr *ngFor="let data of datas | filtrarNombre:filtrarTabla ; let index = index">
+                                    <!-- El => paginate: { itemsPerPage: 10, currentPage: p } está extraído de https://github.com/michaelbromley/ngx-pagination -->
+                                    <tr *ngFor="let data of datas | filtrarNombre:filtrarTabla | paginate: { itemsPerPage: 10, currentPage: p } ; let index = index">
                                         <td class="col-md-1">
                                             <div class="demo-checkbox">
                                                 <!-- <input type="checkbox" id="uno" name="" />
@@ -111,7 +112,8 @@
                             </table>
 
                             <div class="d-flex justify-content-end">
-
+                                <!-- Extraído de https://github.com/michaelbromley/ngx-pagination -->
+                                <pagination-controls (pageChange)="p = $event"></pagination-controls>
                             </div>
 
                         </div>

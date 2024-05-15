@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { ContainerComponent } from './components/container.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import {NgxPaginationModule} from 'ngx-pagination';
+
 import { FormatNamePipe } from './pipes/format-name.pipe';
 import { FormatValueImagePipe } from './pipes/format-value-image.pipe';
 import { FiltrarNombrePipe } from './pipes/filtrar-nombre.pipe';
@@ -23,7 +26,8 @@ import { FiltrarNombrePipe } from './pipes/filtrar-nombre.pipe';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers: [
     provideClientHydration()

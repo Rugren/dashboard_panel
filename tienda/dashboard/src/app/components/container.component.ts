@@ -20,6 +20,9 @@ export class ContainerComponent implements OnInit {
   // Este es el filtro para las búsquedas por nombre
   filtrarTabla: any = '';
 
+  // Extraído de https://github.com/michaelbromley/ngx-pagination
+  p: number = 1;
+
   constructor(private route: ActivatedRoute, private entityService: EntityService) {}
 
   ngOnInit(): void {
