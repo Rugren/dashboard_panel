@@ -8,13 +8,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormatNamePipe } from './pipes/format-name.pipe';
 import { FormatValueImagePipe } from './pipes/format-value-image.pipe';
+import { FiltrarNombrePipe } from './pipes/filtrar-nombre.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContainerComponent,
     FormatNamePipe,
-    FormatValueImagePipe
+    FormatValueImagePipe,
+    FiltrarNombrePipe
   ],
   imports: [
     BrowserModule,
