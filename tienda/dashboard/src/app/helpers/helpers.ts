@@ -1,4 +1,6 @@
+import { Categorias } from "../models/categorias";
 import { Productos } from "../models/productos";
+import { Usuarios } from "../models/usuarios";
 
 // Método que nos de las propiedades del objeto
 export const getEntityProperties = (entity: string): Array<any> => {
@@ -10,8 +12,17 @@ export const getEntityProperties = (entity: string): Array<any> => {
     let entityClass: any;
 
     if(entity=="productos"){
-        // Productos lo recogerá de nuestros modelos: carpeta models/productos
+        /* Productos lo recogerá de nuestros modelos: carpeta models/productos 
+        (instanciamos a nuestros modelos, en este caso Productos) */
         entityClass = new Productos()
+    }
+
+    if(entity=="categorias"){
+        entityClass = new Categorias()
+    }
+
+    if(entity=="usuarios"){
+        entityClass = new Usuarios()
     }
 
     if(entityClass){

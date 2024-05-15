@@ -47,6 +47,7 @@ export class ContainerComponent implements OnInit {
     this.pagePath : para que nos traiga la ruta de la página
     */
     this.entityNames = getEntityProperties(this.pagePath)
+    console.log(this.entityNames);
   
   }
 
