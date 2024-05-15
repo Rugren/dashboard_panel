@@ -23,10 +23,9 @@
                             <div class="col-lg-12">
                                 <div class="input-group">
                                     <!-- <input class="form-control" id="demo-input-search2" type="text" placeholder="Buscar por nombre" autocomplete="off"> -->
-                                    <input class="form-control" id="demo-input-search2" type="text" 
-                                    placeholder="Buscar por nombre" 
-                                    name="filtrarTabla" [(ngModel)]="filtrarTabla"
-                                    autocomplete="off">
+                                    <input class="form-control" id="demo-input-search2" type="text"
+                                        placeholder="Buscar por nombre" name="filtrarTabla" [(ngModel)]="filtrarTabla"
+                                        autocomplete="off">
                                 </div>
                             </div>
                             <!-- </form> -->
@@ -74,8 +73,9 @@
                                 <tbody>
                                     <!-- Aquí vamos a hacer un bucle for que nos muestre nuestros datos de la BD 
                                     Después hecho un index que nos muestre el recorrido del bucle for -->
-                                    <!-- El => paginate: { itemsPerPage: 10, currentPage: p } está extraído de https://github.com/michaelbromley/ngx-pagination -->
-                                    <tr *ngFor="let data of datas | filtrarNombre:filtrarTabla | paginate: { itemsPerPage: 10, currentPage: p } ; let index = index">
+                                    <!-- El => paginate: { itemsPerPage: 10, currentPage: p } está extraído de https://github.com/michaelbromley/ngx-pagination 
+                                    <tr *ngFor="let data of datas | filtrarNombre:filtrarTabla | paginate: { itemsPerPage: 10, currentPage: p } ; let index = index"> -->
+                                    <tr *ngFor="let data of datas | filtrarNombre:filtrarTabla | paginate: { itemsPerPage: noOfRows, currentPage: page } ; let index = index">
                                         <td class="col-md-1">
                                             <div class="demo-checkbox">
                                                 <!-- <input type="checkbox" id="uno" name="" />
@@ -90,7 +90,7 @@
                                             <!-- Así solo muestra "data" <div>data</div> -->
                                             <!-- Así nos muestra "[object Object]" <div> {{ data }} </div> -->
                                             <!-- Con <div>{{ data.nombre }}</div> ya nos muestra el nombre de los Productos, Categorías y Usuarios -->
-                                            
+
                                             <!-- <div>{{ getValue(data, nombre) | formatValueImage:nombre }}</div> -->
                                             <!-- Puesto mejor dentro de un innerHTML que ya usa Angular, no hacen falta los {{}} -->
                                             <div [innerHTML]="getValue(data, nombre) | formatValueImage:nombre"></div>
@@ -99,7 +99,7 @@
                                             <a data-toggle="tooltip" data-original-title="Ver">
                                                 <i class="fa fa-eye text-inverse m-r-10"></i> </a>
 
-                                                <!-- El botón de editar (que es un lapiz) no se muestra, no se ve -->
+                                            <!-- El botón de editar (que es un lapiz) no se muestra, no se ve -->
                                             <a data-toggle="tooltip" data-original-title="Editar">
                                                 <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
 
@@ -113,7 +113,30 @@
 
                             <div class="d-flex justify-content-end">
                                 <!-- Extraído de https://github.com/michaelbromley/ngx-pagination -->
-                                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                                <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+                                <pagination-controls (pageChange)="page = $event"></pagination-controls>
+
+                                <!-- Extraído pagination-template de https://github.com/michaelbromley/ngx-pagination 
+                                y posteriormente editado aquí-->
+                                <pagination-template #p="paginationApi" (pageChange)="page=$event">
+
+                                    <div class="form-group">
+                                        <div class="item-par-page">
+                                            Pagina
+                                            <select name="noRows" id="noRows"
+                                            (change)="page = 1" [(ngModel)]="noOfRows">
+                                            <option value="5">5</option>
+                                            <option value="10">10</option>
+                                            <option value="25">25</option>
+                                            <option value="30">30</option>
+                                            <option value="50">50</option>
+                                            <option value="75">75</option>
+                                            <option value="100">100</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                </pagination-template>
                             </div>
 
                         </div>
@@ -143,7 +166,7 @@ Este tooltips es para que se vean los iconos de Ver, Editar y Cerrar
 En referencia a: <a data-toggle="tooltip" data-original-title="Ver"> 
 -->
 <script>
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();
-});
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
 </script>

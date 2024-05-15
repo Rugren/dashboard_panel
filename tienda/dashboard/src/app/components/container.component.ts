@@ -21,7 +21,12 @@ export class ContainerComponent implements OnInit {
   filtrarTabla: any = '';
 
   // Extraído de https://github.com/michaelbromley/ngx-pagination
-  p: number = 1;
+  // p: number = 1; Renombrado a page;
+  page: number = 1;
+  // Número de líneas que queremos que muestre
+  noOfRows: number = 10;
+  
+
 
   constructor(private route: ActivatedRoute, private entityService: EntityService) {}
 
