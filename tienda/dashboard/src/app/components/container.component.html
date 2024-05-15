@@ -6,7 +6,11 @@
     <div class="container-fluid r-aside">
         <div class="row page-titles">
             <div class="col-md-5 align-self-center">
-                <h3 class="text-themecolor">navegacion1</h3>
+                <!-- <h3 class="text-themecolor">navegacion1</h3> -->
+                <!-- pagePath es cómo llamamos a nuestras páginas, su ruta.
+                Cuando esté en Productos se verá encima del número de existencias de productos, la página Productos 
+                Traemos el pipe llamado formatName -->
+                <h3 class="text-themecolor">{{ pagePath | formatName }}</h3>
             </div>
         </div>
         <h2>{{ datas?.length }}: En existencia</h2>
@@ -60,7 +64,7 @@
                                         </th>
 
                                         <!-- <th>campos</th> -->
-                                        <th *ngFor="let item of entityNames">{{ item }}</th>
+                                        <th *ngFor="let item of entityNames">{{ item | formatName }}</th>
                                         <th class="text-nowrap">Action</th>
                                     </tr>
                                 </thead>
