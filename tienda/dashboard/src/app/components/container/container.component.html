@@ -64,16 +64,24 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <!-- Aquí vamos a hacer un bucle for que nos muestre nuestros datos de la BD 
+                                    Después hecho un index que nos muestre el recorrido del bucle for -->
+                                    <tr *ngFor="let data of datas; let index = index">
                                         <td class="col-md-1">
                                             <div class="demo-checkbox">
-                                                <input type="checkbox" id="uno" name="" />
-                                                <label for="uno">1</label>
+                                                <!-- <input type="checkbox" id="uno" name="" />
+                                                <label for="uno">1</label> -->
+                                                <input type="checkbox" id="{{index}}" name="" />
+                                                <!-- +1 para que el recorrido no nos de 0 -->
+                                                <label for="{{index}}">{{index + 1}}</label>
                                             </div>
                                         </td>
 
                                         <td>
-                                            <div>data</div>
+                                            <!-- Así solo muestra "data" <div>data</div> -->
+                                            <!-- Así nos muestra "[object Object]" <div> {{ data }} </div> -->
+                                            <!-- Aquí con {{ data.nombre }} ya nos muestra el nombre de los Productos, Categorías y Usuarios -->
+                                            <div>{{ data.nombre }}</div>
                                         </td>
                                         <td class="text-nowrap">
                                             <a data-toggle="tooltip" data-original-title="Ver">

@@ -18,6 +18,7 @@ export class ContainerComponent implements OnInit {
     this.initComponent();
     // console.log(this.route);
 
+    // Coge las Datas (datos de la BD) de entity.service.ts
     this.entityService.getDatas(this.pagePath).subscribe({
       next: (data: any) => {
         const { isSuccess, results } = data;
