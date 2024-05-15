@@ -15,6 +15,7 @@ export class ContainerComponent implements OnInit {
 
   // entityNames está en container.component.html
   entityNames: Array<any> = [];
+  searchTag: any;
 
   constructor(private route: ActivatedRoute, private entityService: EntityService) {}
 
@@ -48,7 +49,16 @@ export class ContainerComponent implements OnInit {
     */
     this.entityNames = getEntityProperties(this.pagePath)
     console.log(this.entityNames);
-  
+  }
+
+  getValue(data: any, nombre: any){
+    const index: any = nombre;
+    // si esta data existe hará
+    if(data) {
+      this.searchTag = data.value
+    }
+
+    return data[index]
   }
 
 }

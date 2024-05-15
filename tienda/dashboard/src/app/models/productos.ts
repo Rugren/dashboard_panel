@@ -11,8 +11,7 @@ export class Productos {
     precio_regular: number = 0;
     slug: string = '';
     brand: string = '';
-    // currency: string = 'USD'; // estaba así
-    currency: string = 'EUR';
+    currency: string = 'USD';
     status: boolean = false;
     availability: boolean = false;
     // options: string = ''; // Este campo sale en la BD, pero no en el vídeo https://www.youtube.com/watch?v=FuY9f5-Qx20&list=PLRfcnifbUdc2wkM2go6al7ZnJjOWY6cvW&index=42 1h 43min 58seg.

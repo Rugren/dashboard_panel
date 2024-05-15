@@ -78,11 +78,11 @@
                                             </div>
                                         </td>
 
-                                        <td>
+                                        <td *ngFor="let nombre of entityNames">
                                             <!-- Así solo muestra "data" <div>data</div> -->
                                             <!-- Así nos muestra "[object Object]" <div> {{ data }} </div> -->
-                                            <!-- Aquí con {{ data.nombre }} ya nos muestra el nombre de los Productos, Categorías y Usuarios -->
-                                            <div>{{ data.nombre }}</div>
+                                            <!-- Con <div>{{ data.nombre }}</div> ya nos muestra el nombre de los Productos, Categorías y Usuarios -->
+                                            <div>{{ getValue(data, nombre) }}</div>
                                         </td>
                                         <td class="text-nowrap">
                                             <a data-toggle="tooltip" data-original-title="Ver">
