@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { EntityService } from '../../services/entity.service';
+import { EntityService } from '../services/entity.service';
+import { getEntityProperties } from '../helpers/helpers';
 
 @Component({
   selector: 'app-container',
@@ -11,6 +12,9 @@ export class ContainerComponent implements OnInit {
 
   pagePath: string ='';
   datas: any;
+
+  // entityNames está en container.component.html
+  entityNames: Array<any> = [];
 
   constructor(private route: ActivatedRoute, private entityService: EntityService) {}
 
@@ -38,6 +42,12 @@ export class ContainerComponent implements OnInit {
   initComponent (){
     this.pagePath = this.route.snapshot.url[0]?.path || 'productos';
     console.log(this.pagePath); // nos mostrará por consola si estamos en productos, categorias o usuarios. Si hay un error, manda a productos.
+  
+    /* Importado del archivo creado helpers.ts 
+    this.pagePath : para que nos traiga la ruta de la página
+    */
+    this.entityNames = getEntityProperties(this.pagePath)
+  
   }
 
 }

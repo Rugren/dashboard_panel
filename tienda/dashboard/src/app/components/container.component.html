@@ -59,7 +59,8 @@
                                             <label for="basic_checkbox_1">N°</label>
                                         </th>
 
-                                        <th>campos</th>
+                                        <!-- <th>campos</th> -->
+                                        <th *ngFor="let item of entityNames">{{ item }}</th>
                                         <th class="text-nowrap">Action</th>
                                     </tr>
                                 </thead>
