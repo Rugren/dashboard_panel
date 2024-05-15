@@ -86,7 +86,10 @@
                                             <!-- Así solo muestra "data" <div>data</div> -->
                                             <!-- Así nos muestra "[object Object]" <div> {{ data }} </div> -->
                                             <!-- Con <div>{{ data.nombre }}</div> ya nos muestra el nombre de los Productos, Categorías y Usuarios -->
-                                            <div>{{ getValue(data, nombre) }}</div>
+                                            
+                                            <!-- <div>{{ getValue(data, nombre) | formatValueImage:nombre }}</div> -->
+                                            <!-- Puesto mejor dentro de un innerHTML que ya usa Angular, no hacen falta los {{}} -->
+                                            <div [innerHTML]="getValue(data, nombre) | formatValueImage:nombre"></div>
                                         </td>
                                         <td class="text-nowrap">
                                             <a data-toggle="tooltip" data-original-title="Ver">
