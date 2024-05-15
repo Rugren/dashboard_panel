@@ -22,8 +22,11 @@
                             <!-- <form (submit)="handleSubmit($event)"> -->
                             <div class="col-lg-12">
                                 <div class="input-group">
-                                    <input class="form-control" id="demo-input-search2" type="text"
-                                        placeholder="Buscar por nombre" autocomplete="off">
+                                    <!-- <input class="form-control" id="demo-input-search2" type="text" placeholder="Buscar por nombre" autocomplete="off"> -->
+                                    <input class="form-control" id="demo-input-search2" type="text" 
+                                    placeholder="Buscar por nombre" 
+                                    name="filtrarTabla" [(ngModel)]="filtrarTabla"
+                                    autocomplete="off">
                                 </div>
                             </div>
                             <!-- </form> -->
@@ -71,7 +74,7 @@
                                 <tbody>
                                     <!-- Aquí vamos a hacer un bucle for que nos muestre nuestros datos de la BD 
                                     Después hecho un index que nos muestre el recorrido del bucle for -->
-                                    <tr *ngFor="let data of datas; let index = index">
+                                    <tr *ngFor="let data of datas | filtrarNombre:filtrarTabla ; let index = index">
                                         <td class="col-md-1">
                                             <div class="demo-checkbox">
                                                 <!-- <input type="checkbox" id="uno" name="" />

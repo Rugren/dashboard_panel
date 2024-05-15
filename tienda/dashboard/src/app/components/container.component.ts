@@ -17,6 +17,9 @@ export class ContainerComponent implements OnInit {
   entityNames: Array<any> = [];
   searchTag: any;
 
+  // Este es el filtro para las búsquedas por nombre
+  filtrarTabla: any = '';
+
   constructor(private route: ActivatedRoute, private entityService: EntityService) {}
 
   ngOnInit(): void {
