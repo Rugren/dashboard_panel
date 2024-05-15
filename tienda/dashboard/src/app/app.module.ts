@@ -7,12 +7,14 @@ import { ContainerComponent } from './components/container.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormatNamePipe } from './pipes/format-name.pipe';
+import { FormatValueImagePipe } from './pipes/format-value-image.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContainerComponent,
-    FormatNamePipe
+    FormatNamePipe,
+    FormatValueImagePipe
   ],
   imports: [
     BrowserModule,
