@@ -123,6 +123,15 @@
                                     <div class="form-group">
                                         <div class="item-par-page">
                                             Pagina
+                                            <!-- 
+                                            p.getCurrent() para el número de página actual
+                                            p.getLastPage() para el número total de páginas
+                                            datas?.length para mostrar el rango de índices de datos junto con la longitud total de los datos.
+                                            -->
+                                            {{ getStartIndex(p.getCurrent(), p.getLastPage()) }} 
+                                            - {{ getLastIndex(p.getCurrent(), p.getLastPage()) }}
+                                            de {{ datas?.length }} 
+
                                             <select name="noRows" id="noRows"
                                             (change)="page = 1" [(ngModel)]="noOfRows">
                                             <option value="5">5</option>
