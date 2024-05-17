@@ -68,9 +68,11 @@ export class ContainerComponent implements OnInit {
     this.entityNames = [this.entityNamesAll[0], this.entityNamesAll[1]] 
     Pero solo queremos que nos muestre SIEMPRE el campo de nombre:
     */
-    this.entityNames = [this.entityNamesAll[0]]
+    /* this.entityNames = [this.entityNamesAll[0]] // reemplazado por: getDataLS de 2-3 líneas más abajo */
     console.log("entityNames hace esto:", this.entityNames);
     console.log("entityNamesAll hace esto:", this.entityNamesAll);
+    const getDataLS = this.getDataLocalStorage(this.pagePath)
+    this.entityNames = getDataLS ? getDataLS.entityNames : [this.entityNamesAll[0]];
   }
 
   getValue(data: any, nombre: any){
@@ -182,7 +184,33 @@ export class ContainerComponent implements OnInit {
     } else {
       this.entityNames = this.entityNames.filter((entityName: any) => entityName !== objeto)
     }
+
+    // Esto hecho para el setDataLocalStorage y getDataLocalStorage :
+    const index: any = this.pagePath
+    let data: any = {'entityNames': this.entityNames}
+    this.setDataLocalStorage(index, data)
   }
+
+
+
+
+  // Valores de los filtros guardados (para evitar pérdidas al refrescar la página y que se mantengan valores para el Filtro)
+  setDataLocalStorage(key: any, value: string) {
+    // Si existe información en window.localStorage enviamos los datos
+    if(window.localStorage) {
+      window.localStorage.setItem(key, JSON.stringify(value))
+    }
+  }
+  getDataLocalStorage(key: any) {
+    if(window.localStorage) {
+      const value: any = window.localStorage.getItem(key)
+      return JSON.parse(value)
+    }
+  }
+
+
+
+
 
 
 }
