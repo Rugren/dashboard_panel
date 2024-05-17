@@ -146,24 +146,43 @@ export class ContainerComponent implements OnInit {
     // Que si está marcado (checked) no se nos deseleccione (event.target)
     const { checked } = event.target;
 
+    /* FILTROS CAMPOS #1. 
+    PARA FILTROS EN ORDEN QUE DEMOS (NO BORRAR, explicación) * /
     // 1.0 Si dimos click o marcamos algo 
     if(checked) { 
       // 1.1 ¿Ya dimos clic? Si, y además que nos devuelve lo que venga en entityNames
       if(!this.entityNames.includes(objeto)){
-        /* 1.2 Y así nos devuelve el objeto (con .push). 
-        Es decir, se nos ve reflejado los campos del filtro seleccionado. */
+        / * 1.2 Y así nos devuelve el objeto (con .push). 
+        Es decir, se nos ve reflejado los campos del filtro seleccionado. * /
         this.entityNames.push(objeto)
       }
-      /* Si todavía no ha sido checkeado, creamos un filtro 
-      que filtre (filter) y entre paréntesis para nombrar nuestra respuesta: (entityName: any)
+    } else {
+      this.entityNames = this.entityNames.filter((entityName: any) => entityName !== objeto)
+    }
+  } */
+
+
+  /* FILTROS CAMPOS #2. 
+  PARA FILTROS EN ORDEN PREDEFINIDO, según el orden que tengamos estipulado saldrán en las columnas (Mejorando el anterior)
+  (estamos dentro de la función setEntityNames) */
+    if(checked) {
+      if(!this.entityNames.includes(objeto)){
+        // oldValue serán nuestras columnas por defecto como las teníamos, los datos del objeto viejo.
+        const oldValue = this.entityNames;
+        oldValue.push(objeto)
+
+        this.entityNames = [];
+        this.entityNames = this.entityNamesAll.filter(objeto => oldValue.includes(objeto));
+      }
+
+      /* Por si todavía no ha sido checkeado, hemos creamos un filtro 
+      que filtre (.filter) y entre paréntesis para nombrar nuestra respuesta: (entityName: any)
       y que nos lance la respuesta: => entityName !== objeto, es decir, que sea diferente al objeto que estamos esperando. 
       */
     } else {
       this.entityNames = this.entityNames.filter((entityName: any) => entityName !== objeto)
     }
   }
-
-
 
 
 }

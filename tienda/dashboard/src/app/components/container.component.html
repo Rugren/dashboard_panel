@@ -3,7 +3,10 @@
     <!-- ============================================================== -->
     <!-- Bread crumb and right sidebar toggle -->
     <!-- ============================================================== -->
-    <div class="container-fluid r-aside">
+    <!-- el *ngIf="datas?.length" puesto en el div es para que si encuentre algo, que nos mande como resultado lo que tenga que ver en parte a esas interaciones, 
+        como el entityNamesAll y todos los recorridos que ya tenemos. Todo lo que tenga que ver con la aplicación 
+        (en consola web se ven los fallos corregidos, ya no aparecen) -->
+    <div class="container-fluid r-aside" *ngIf="datas?.length">
         <div class="row page-titles">
             <div class="col-md-5 align-self-center">
                 <!-- <h3 class="text-themecolor">navegacion1</h3> -->
