@@ -15,6 +15,10 @@ export class ContainerComponent implements OnInit {
 
   // entityNames está en container.component.html
   entityNames: Array<any> = [];
+
+  // entityNamesAll: Para seleccionar todos los campos
+  entityNamesAll: Array<any> = [];
+
   searchTag: any;
 
   // Este es el filtro para las búsquedas por nombre
@@ -57,9 +61,16 @@ export class ContainerComponent implements OnInit {
   
     /* Importado del archivo creado helpers.ts 
     this.pagePath : para que nos traiga la ruta de la página
+    this.entityNames = getEntityProperties(this.pagePath) */
+
+    this.entityNamesAll = getEntityProperties(this.pagePath)
+    /* [this.entityNamesAll[0] es "Nombre" - El [1] = es "Descripcion" (Por si queremos que nos muestre ciertos campos SIEMPRE y no todos)
+    this.entityNames = [this.entityNamesAll[0], this.entityNamesAll[1]] 
+    Pero solo queremos que nos muestre SIEMPRE el campo de nombre:
     */
-    this.entityNames = getEntityProperties(this.pagePath)
-    console.log(this.entityNames);
+    this.entityNames = [this.entityNamesAll[0]]
+    console.log("entityNames hace esto:", this.entityNames);
+    console.log("entityNamesAll hace esto:", this.entityNamesAll);
   }
 
   getValue(data: any, nombre: any){
@@ -127,6 +138,29 @@ export class ContainerComponent implements OnInit {
       lastIndex = this.datas ? this.datas.length : null;
     }
     return lastIndex.toString();
+  }
+
+
+  // Función que me da los valores para el Filtro (Me pone las columnas con los filtros que queramos añadir)
+  setEntityNames(event: any, objeto: any) {
+    // Que si está marcado (checked) no se nos deseleccione (event.target)
+    const { checked } = event.target;
+
+    // 1.0 Si dimos click o marcamos algo 
+    if(checked) { 
+      // 1.1 ¿Ya dimos clic? Si, y además que nos devuelve lo que venga en entityNames
+      if(!this.entityNames.includes(objeto)){
+        /* 1.2 Y así nos devuelve el objeto (con .push). 
+        Es decir, se nos ve reflejado los campos del filtro seleccionado. */
+        this.entityNames.push(objeto)
+      }
+      /* Si todavía no ha sido checkeado, creamos un filtro 
+      que filtre (filter) y entre paréntesis para nombrar nuestra respuesta: (entityName: any)
+      y que nos lance la respuesta: => entityName !== objeto, es decir, que sea diferente al objeto que estamos esperando. 
+      */
+    } else {
+      this.entityNames = this.entityNames.filter((entityName: any) => entityName !== objeto)
+    }
   }
 
 

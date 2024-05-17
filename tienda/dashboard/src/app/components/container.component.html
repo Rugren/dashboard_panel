@@ -41,12 +41,29 @@
                                 <div class="dropdown-menu">
 
                                     <ul class="list-style-none">
-                                        <li>
+                                        <!-- el "let first = first" es para que me coja el primer campo: nombre. -->
+                                        <li *ngFor="let entityName of entityNamesAll; let first = first">
                                             <div class="controls">
                                                 <label class="custom-control custom-checkbox m-l-10">
-                                                    <input type="checkbox" class="custom-control-input" name="">
-                                                    <span class="custom-control-indicator"></span> <span
-                                                        class="custom-control-description">modelos</span>
+                                                    <!-- Dentro del input:
+                                                        - El [checked] es para que me reconozca el "first" 
+                                                        o si me encontró un recorrido en entityNames que me incluya todo lo que encontró en este recorrido 
+                                                        - El [disabled]="first" es para que no nos deje desmarcar o desseleccionar el primer campo (no se podría quitar "Nombre")
+                                                        - (change)="" es para que me detecte un cambio. LLamo a la función setEntityNames en el container.component.ts
+                                                    -->
+                                                    <input type="checkbox" 
+                                                    class="custom-control-input"
+                                                    
+                                                    [checked]="first || entityNames.includes(entityName)"
+                                                    [disabled]="first"
+                                                    (change)="setEntityNames($event, entityName)"
+
+                                                    name="">
+                                                    <span class="custom-control-indicator"></span> 
+                                                    <!-- Así era como estaba: 
+                                                    <span class="custom-control-description">modelos</span> -->
+                                                    <span class="custom-control-description"> {{ entityName | formatName }} </span>
+                                                    <!-- Con entityName ya nos coje todos los camposen Filtros | El formatName es para que nos lo traduzca y ponga el camelCase -->
                                                 </label>
                                             </div>
                                         </li>

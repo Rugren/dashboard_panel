@@ -25,6 +25,16 @@ export class FormatNamePipe implements PipeTransform {
       return 'Imagen'
     }
 
+    /* // Se sobreentiende que nos va a retornar lo mismo
+    if(value === "nombre") {
+      return 'Nombre'
+    } */
+
+    // Para que nos ponga Descripción al menos con acento
+    if(value === "descripcion") {
+      return 'Descripción'
+    }
+
     if(value === "more_description") {
       return 'Más descripción'
     }
@@ -87,7 +97,7 @@ export class FormatNamePipe implements PipeTransform {
     }
 
 
-    // 1.0 Que si hay una barra baja
+    // 1.0 Que si hay una barra baja (ver 1.1)
     let newValueArray: any = value.split('_')
     // .map para mapearlo 
     newValueArray = newValueArray.map( (nombre: string) => nombre.charAt(0).toUpperCase()+nombre.slice(1) )
