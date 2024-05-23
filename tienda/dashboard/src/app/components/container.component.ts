@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { EntityService } from '../services/entity.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { getEntityProperties } from '../helpers/helpers';
+import { EntityService } from '../services/entity.service';
 
 @Component({
   selector: 'app-container',
@@ -18,7 +18,7 @@ export class ContainerComponent implements OnInit {
 
   // entityNamesAll: Para seleccionar todos los campos
   entityNamesAll: Array<any> = [];
-
+  
   searchTag: any;
 
   // Este es el filtro para las búsquedas por nombre
@@ -29,10 +29,10 @@ export class ContainerComponent implements OnInit {
   page: number = 1;
   // Número de líneas que queremos que muestre
   noOfRows: number = 10;
-  
 
 
-  constructor(private route: ActivatedRoute, private entityService: EntityService) {}
+
+  constructor(private route: ActivatedRoute, private entityService: EntityService, private router: Router) { }
 
   ngOnInit(): void {
     this.initComponent();
@@ -42,28 +42,44 @@ export class ContainerComponent implements OnInit {
     this.entityService.getDatas(this.pagePath).subscribe({
       next: (data: any) => {
         const { isSuccess, results } = data;
-        if (isSuccess && results ) {
+        if (isSuccess && results) {
           this.datas = results;
-          
-          console.log(this.datas);
+
+          console.log("Todos mis objetos (datos): ", this.datas);
+          /* Así es como lo tenía, que iba bien, (pero puesto el "this.datas.forEach" de abajo para localizar el error del _id, 
+          que no lo encuentro, para comprobar si me detecta el id) */
         }
       },
       error: (err: any) => {
-        console.log(err)
+        console.log(err);
       }
     });
 
+    /*
+          // Verifica si los datos contienen el _id esperado
+          this.datas.forEach((data: any) => {
+            if (!data._id) {
+              console.warn('El objeto data no tiene un _id:', data);
+            }
+          });
+        }
+      },
+      error: (err: any) => {
+        console.log(err);
+      }
+    });*/
+
   }
 
-  initComponent (){
+  initComponent() {
     this.pagePath = this.route.snapshot.url[0]?.path || 'productos';
-    console.log(this.pagePath); // nos mostrará por consola si estamos en productos, categorias o usuarios. Si hay un error, manda a productos.
-  
+    console.log("Estamos en la página de:", this.pagePath); // nos mostrará por consola si estamos en productos, categorias o usuarios. Si hay un error, manda a productos.
+
     /* Importado del archivo creado helpers.ts 
     this.pagePath : para que nos traiga la ruta de la página
     this.entityNames = getEntityProperties(this.pagePath) */
 
-    this.entityNamesAll = getEntityProperties(this.pagePath)
+    this.entityNamesAll = getEntityProperties(this.pagePath);
     /* [this.entityNamesAll[0] es "Nombre" - El [1] = es "Descripcion" (Por si queremos que nos muestre ciertos campos SIEMPRE y no todos)
     this.entityNames = [this.entityNamesAll[0], this.entityNamesAll[1]] 
     Pero solo queremos que nos muestre SIEMPRE el campo de nombre:
@@ -71,15 +87,16 @@ export class ContainerComponent implements OnInit {
     /* this.entityNames = [this.entityNamesAll[0]] // reemplazado por: getDataLS de 2-3 líneas más abajo */
     console.log("entityNames hace esto:", this.entityNames);
     console.log("entityNamesAll hace esto:", this.entityNamesAll);
-    const getDataLS = this.getDataLocalStorage(this.pagePath)
+    const getDataLS = this.getDataLocalStorage(this.pagePath);
     this.entityNames = getDataLS ? getDataLS.entityNames : [this.entityNamesAll[0]];
   }
 
-  getValue(data: any, nombre: any){
+  getValue(data: any, nombre: any) {
     const index: any = nombre;
     // si esta data existe hará
-    if(data) {
-      this.searchTag = data.value
+    if (data) {
+      this.searchTag = data.value;
+      //console.log("hola0", data);
     }
 
     return data[index]
@@ -119,7 +136,7 @@ export class ContainerComponent implements OnInit {
   return lastIndex.toString();
   }
   */
-  
+
   // ASÍ ES OTRA MANERA, SÍ FUNCIONAN AMBOS:
   // 2.1 Este método es para empezar la paginación
   getStartIndex(currentPage: number, lastPage: number) {
@@ -149,7 +166,7 @@ export class ContainerComponent implements OnInit {
     const { checked } = event.target;
 
     /* FILTROS CAMPOS #1. 
-    PARA FILTROS EN ORDEN QUE DEMOS (NO BORRAR, explicación) * /
+    PARA poder poner FILTROS EN ORDEN QUE DEMOS (NO BORRAR, explicación) * /
     // 1.0 Si dimos click o marcamos algo 
     if(checked) { 
       // 1.1 ¿Ya dimos clic? Si, y además que nos devuelve lo que venga en entityNames
@@ -163,15 +180,14 @@ export class ContainerComponent implements OnInit {
     }
   } */
 
-
-  /* FILTROS CAMPOS #2. 
-  PARA FILTROS EN ORDEN PREDEFINIDO, según el orden que tengamos estipulado saldrán en las columnas (Mejorando el anterior)
-  (estamos dentro de la función setEntityNames) */
-    if(checked) {
-      if(!this.entityNames.includes(objeto)){
+    /* FILTROS CAMPOS #2. 
+    PARA poder poner FILTROS EN ORDEN PREDEFINIDO, según el orden que tengamos estipulado saldrán en las columnas (Mejorando el anterior)
+    (estamos dentro de la función setEntityNames) */
+    if (checked) {
+      if (!this.entityNames.includes(objeto)) {
         // oldValue serán nuestras columnas por defecto como las teníamos, los datos del objeto viejo.
         const oldValue = this.entityNames;
-        oldValue.push(objeto)
+        oldValue.push(objeto);
 
         this.entityNames = [];
         this.entityNames = this.entityNamesAll.filter(objeto => oldValue.includes(objeto));
@@ -182,32 +198,63 @@ export class ContainerComponent implements OnInit {
       y que nos lance la respuesta: => entityName !== objeto, es decir, que sea diferente al objeto que estamos esperando. 
       */
     } else {
-      this.entityNames = this.entityNames.filter((entityName: any) => entityName !== objeto)
+      this.entityNames = this.entityNames.filter((entityName: any) => entityName !== objeto);
     }
 
     // Esto hecho para el setDataLocalStorage y getDataLocalStorage :
-    const index: any = this.pagePath
-    let data: any = {'entityNames': this.entityNames}
-    this.setDataLocalStorage(index, data)
+    const index: any = this.pagePath;
+    let data: any = { 'entityNames': this.entityNames };
+    this.setDataLocalStorage(index, data);
   }
 
 
-
-
+  
   // Valores de los filtros guardados (para evitar pérdidas al refrescar la página y que se mantengan valores para el Filtro)
   setDataLocalStorage(key: any, value: string) {
     // Si existe información en window.localStorage enviamos los datos
-    if(window.localStorage) {
-      window.localStorage.setItem(key, JSON.stringify(value))
+    if (window.localStorage) {
+      window.localStorage.setItem(key, JSON.stringify(value));
     }
   }
   getDataLocalStorage(key: any) {
-    if(window.localStorage) {
-      const value: any = window.localStorage.getItem(key)
-      return JSON.parse(value)
+    if (window.localStorage) {
+      const value: any = window.localStorage.getItem(key);
+      return JSON.parse(value);
     }
   }
 
+
+
+  // Método entityItem llamado en el container.component.html
+  entityItem(id: any, action: any) {
+    // El parámetro "id" que es "any" [que puede ser de cualquier tipo (string, number, object, etc.) no lo coge ]
+
+    /*
+    - .pagePath (Válido para cualquier página; Productos, Categorias, o Usuarios) 
+    - id (es data._id llamado en el .html)
+    - action (es para los botones Ver, Editar y Cerrar)
+    */
+    /* Con con comillas simples no funciona (deben ser comillas invertidas)
+    this.router.navigate(['${this.pagePath}/${id}/${action}']); // Así no va */
+    /* OK (este es el que funciona, pero no coge en la URL el id): 
+    this.router.navigate([`${this.pagePath}/${id}/${action}`]); */
+
+    // Para comprobar que funcionan "pagePath", "id" y "action" correctamente
+    console.log('Muestra la ruta pagePath:', this.pagePath);
+    console.log('Muestra la id:', id); // Aquí hay que verificar si "id" no es undefined (es lo que no funciona, me aparece undefined)
+    console.log('El botón pulsado de action:', action);
+    
+    
+    // Si no funciona id no manda a la ruta y nos muestra el mensaje de error por consola
+    if (this.pagePath && id && action) {
+      this.router.navigate([`${this.pagePath}/${id}/${action}`]);
+   // this.router.navigate([`${this.pagePath}/${id}/${action.toLowerCase()}`]);
+    } else {
+      console.error('Tenemos un error: pagePath, id, or action is undefined (no están definidos correctamente)');
+    }
+    
+
+  }
 
 
 

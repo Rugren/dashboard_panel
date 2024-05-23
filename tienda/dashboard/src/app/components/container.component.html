@@ -85,9 +85,10 @@
                                             <label for="basic_checkbox_1">N°</label>
                                         </th>
 
-                                        <!-- <th>campos</th> -->
+                                        <!-- <th>campos</th> (lo que antes ponía "campos") Ahora en la siguiente línea recorremos y mostramos los nombres de los campos -->
                                         <th *ngFor="let item of entityNames">{{ item | formatName }}</th>
-                                        <th class="text-nowrap">Action</th>
+                                        <!-- <th class="text-nowrap">Action</th> -->
+                                        <th class="text-nowrap">Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -115,17 +116,25 @@
                                             <!-- Puesto mejor dentro de un innerHTML que ya usa Angular, no hacen falta los {{}} -->
                                             <div [innerHTML]="getValue(data, nombre) | formatValueImage:nombre"></div>
                                         </td>
+                                        <!--  Así como estaba en el tutorial (que no coge la id) -->
                                         <td class="text-nowrap">
-                                            <a data-toggle="tooltip" data-original-title="Ver">
+                                            <a data-toggle="tooltip" data-original-title="View"
+                                            (click)="entityItem(data.uid, 'Ver')">
+                                            <!-- Este evento click nos muestra la navegación de si estamos en Productos,
+                                                (Categorias o Usuarios) + id + Ver(o Ediar/Cerrar) en la url se ve 
+                                        Con (click)="entityItem(data.nombre, 'Ver')" se traga el id como nombre (en consola al hacer clik se ve), por la función entityItem (ver en el container.components.ts la función; ya que pasa id y action) 
+                                        Con (click)="entityItem(data._id, 'Ver')" debería coger el id como id, pero aparece como indefinido (undefined) 
+                                            -->
                                                 <i class="fa fa-eye text-inverse m-r-10"></i> </a>
 
-                                            <a data-toggle="tooltip" data-original-title="Editar">
-                                                <!-- El botón de editar (que es un lapiz) no se muestra, no se ve -->
-                                                <!-- <i class="fa fa-pencil text-inverse m-r-10"></i> Editar | </a> -->
+                                    <!--Con (click)="entityItem(data.uid, 'Ver')" se traga el id como uid (en consola al hacer clik se ve), [GESTIONAMOS uid como id] pero comprobar si en la función entityItem hace o afecta a algo  -->
+                                            <a data-toggle="tooltip" data-original-title="Edit"
+                                                (click)="entityItem(data.uid, 'Editar')">
                                                 <i class="fa fa-pencil-square" aria-hidden="true"></i> Editar | </a> 
                                                 <!-- <i class="fa fa-pencil-square-o" aria-hidden="true"></i> (Este es otro lapiz, si funciona)-->
 
-                                            <a data-toggle="tooltip" data-original-title="Cerrar">
+                                            <a data-toggle="tooltip" data-original-title="Close"
+                                            (click)="entityItem(data.uid, 'Cerrar')">
                                                 <i class="fa fa-close text-danger"></i> </a>
                                         </td>
                                     </tr>
