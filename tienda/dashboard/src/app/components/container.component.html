@@ -123,11 +123,11 @@
                                             <!-- Este evento click nos muestra la navegación de si estamos en Productos,
                                                 (Categorias o Usuarios) + id + Ver(o Ediar/Cerrar) en la url se ve 
                                         Con (click)="entityItem(data.nombre, 'Ver')" se traga el id como nombre (en consola al hacer clik se ve), por la función entityItem (ver en el container.components.ts la función; ya que pasa id y action) 
-                                        Con (click)="entityItem(data._id, 'Ver')" debería coger el id como id, pero aparece como indefinido (undefined) 
+                                        Con (click)="entityItem(data._id, 'Ver')" (COMO LO TIENE EN EL TUTORIAL) debería coger el id como id, pero a mi me aparece como indefinido (undefined) 
+                                        Con (click)="entityItem(data.uid, 'Ver')" se traga el id como uid (en consola al hacer clik se ve), [GESTIONAMOS uid como id] pero comprobar si en la función entityItem hace o afecta a algo
                                             -->
                                                 <i class="fa fa-eye text-inverse m-r-10"></i> </a>
-
-                                    <!--Con (click)="entityItem(data.uid, 'Ver')" se traga el id como uid (en consola al hacer clik se ve), [GESTIONAMOS uid como id] pero comprobar si en la función entityItem hace o afecta a algo  -->
+                                                
                                             <a data-toggle="tooltip" data-original-title="Edit"
                                                 (click)="entityItem(data.uid, 'Editar')">
                                                 <i class="fa fa-pencil-square" aria-hidden="true"></i> Editar | </a> 
