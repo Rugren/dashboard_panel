@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { routes } from '../../helpers/routes';
 import { actions } from '../../helpers/actions';
+import { formatToCamelCase } from '../../helpers/utils';
+import { getEntityProperties } from '../../helpers/helpers';
 
 @Component({
   selector: 'app-data-admin',
@@ -16,6 +18,10 @@ export class DataAdminComponent implements OnInit {
 
   // actions es igual a actions de la carpeta /helpers/actions (importar)
   actions: Array<any> = actions;
+  routes: Array<any> = routes;
+
+  pageName: any;
+  entityNameAll: any;
 
   constructor(private route: ActivatedRoute, private router: Router) {
     /* 1.0 Hacer click en alguna acción (ver, editar o cerrar) y en la consola del navegador ver ActivatedRoute, 
@@ -31,6 +37,7 @@ export class DataAdminComponent implements OnInit {
     this.entity = urls[0]?.path
     this.entityId = urls[1]?.path
     this.action = urls[2]?.path
+    // Es decir, si ponemos this.action traemos la acción de "ver" o "editar"
     
     console.log("Mostrando las urls path de los parámetros", this.entity, this.entityId, this.action)
 
@@ -49,34 +56,26 @@ export class DataAdminComponent implements OnInit {
       // Que nos navegue a "/productos" en caso de que no exista. (Igual que en el anterior if)
       this.router.navigate(['/productos']);
     }
+
+    const routeObject = this.routes.filter((route: any) => route.path === '/'+this.entity)
+    // Traemos la lista
+    console.log("Muestra nuestros name y path", routeObject)
+
+    /* Si encontraste algo en routeObject en la posición 0, refléjame a this.pageName 
+    y tráeme lo que econtraste en "name"(es lo comentado, pero debajo mejorado; llamado "single" en vez de name, ver en routes.ts) */
+    if(routeObject[0]) {
+      // this.pageName = routeObject[0]?.name;
+
+      // Muestra la acción(ya en formato camelCase) + la página, por ejemplo; ver Productos, editar Categorias
+      this.pageName = formatToCamelCase(this.action) + " " + routeObject[0]?.single;
+      console.log("Nombre de la página dentro de dónde nos encontramos:", this.pageName)
+    }
+
+      this.entityNameAll = getEntityProperties(this.entity);
+      console.log("El entityNameAll muestra todos los campos que tenemos en la Base de datos:", this.entityNameAll)
   }
+
+
 
 }
 
-
-
-/* por si lo necesitamos para poner algo similar en el tutorial más adelante
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-
-@Component({
-  selector: 'app-data-admin',
-  templateUrl: './data-admin.component.html',
-  styleUrl: './data-admin.component.css'
-})
-export class DataAdminComponent implements OnInit {
-  entity: string | undefined;
-  id: string | undefined;
-  action: string | undefined;
-
-  constructor(private route: ActivatedRoute) { }
-
-  ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      this.entity = params['entity'];
-      this.id = params['id'];
-      this.action = params['action'];
-      console.log(`Entity: ${this.entity}, ID: ${this.id}, Action: ${this.action}`);
-    });
-  }
-}*/

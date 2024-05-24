@@ -6,8 +6,9 @@
 ]; */
 
 export const routes = [
-    { path: '/productos', name: 'Productos' },
-    { path: '/categorias', name: 'Categorias' },
-    { path: '/usuarios', name: 'Usuarios' },
+    // El single es otro objeto, que para no modificar "name" en el camelCase, hemos creado "single"
+    { path: '/productos', name: 'Productos', single: 'Productos' },
+    { path: '/categorias', name: 'Categorias', single: 'Categorias' },
+    { path: '/usuarios', name: 'Usuarios', single: 'Usuarios' },
 ];
 
