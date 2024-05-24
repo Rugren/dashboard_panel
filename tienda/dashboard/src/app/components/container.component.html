@@ -119,7 +119,7 @@
                                         <!--  Así como estaba en el tutorial (que no coge la id) -->
                                         <td class="text-nowrap">
                                             <a data-toggle="tooltip" data-original-title="View"
-                                            (click)="entityItem(data.uid, 'Ver')">
+                                            (click)="entityItem(data.uid, 'ver')">
                                             <!-- Este evento click nos muestra la navegación de si estamos en Productos,
                                                 (Categorias o Usuarios) + id + Ver(o Ediar/Cerrar) en la url se ve 
                                         Con (click)="entityItem(data.nombre, 'Ver')" se traga el id como nombre (en consola al hacer clik se ve), por la función entityItem (ver en el container.components.ts la función; ya que pasa id y action) 
@@ -129,12 +129,12 @@
                                                 <i class="fa fa-eye text-inverse m-r-10"></i> </a>
                                                 
                                             <a data-toggle="tooltip" data-original-title="Edit"
-                                                (click)="entityItem(data.uid, 'Editar')">
+                                                (click)="entityItem(data.uid, 'editar')">
                                                 <i class="fa fa-pencil-square" aria-hidden="true"></i> Editar | </a> 
                                                 <!-- <i class="fa fa-pencil-square-o" aria-hidden="true"></i> (Este es otro lapiz, si funciona)-->
 
                                             <a data-toggle="tooltip" data-original-title="Close"
-                                            (click)="entityItem(data.uid, 'Cerrar')">
+                                            (click)="entityItem(data.uid, 'cerrar')">
                                                 <i class="fa fa-close text-danger"></i> </a>
                                         </td>
                                     </tr>
