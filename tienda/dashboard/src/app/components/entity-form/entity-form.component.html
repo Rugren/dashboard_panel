@@ -15,7 +15,10 @@
             <option [value]="false">No</option>
         </select>
         <div *ngIf="(nombre | formatTypeValue: dataId) === 'IMG'">
-            <img [src]="nombre | formatTypeValue: dataId" [alt]="nombre | formatTypeValue: dataId">
+            <!-- <img [src]="nombre | formatTypeValue: dataId" [alt]="nombre | formatTypeValue: dataId"> -->
+            <app-image-view 
+            [imageUrls]="nombre | formatFormValue: dataId"
+            />
         </div>
     </div>
 </form>

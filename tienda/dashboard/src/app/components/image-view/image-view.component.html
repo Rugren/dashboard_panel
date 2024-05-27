@@ -1,1 +1,8 @@
-<p>image-view works!</p>
+<!-- <p>image-view works!</p> -->
+<!-- {{ imageUrls | json }} -->
+
+<div *ngFor="let url of imageUrls">
+    <img [src]="url" alt="">
+    <button>Cargar</button>
+    <button>Eliminar</button>
+</div>
