@@ -22,8 +22,8 @@
 <p>http://localhost:3000/productos/</p>
 <p>En él nos deberán salir todos los productos que tenemos ya creados.</p>
 
-<p>- Para abrir el Frontend;</p>
-<p>1º Abrimos la carpeta del proyecto dashboard panel y entramos en carpeta server</p>
+<p>- Para abrir el Frontend (Angular);</p>
+<p>1º Abrimos la carpeta del proyecto dashboard panel y entramos en carpeta tienda/dashboard</p>
 <p>cd (y la ruta de nuestra carpeta)</p>
 <p>2º Ejecutamos en la consola (Para abrir el front end de Angular): ng serve -o</p>
 <p>3º Si nos se nos abre el programa automáticamente, abrir el puerto http://localhost:4200/ y comprobar que funciona correctamente.</p>
