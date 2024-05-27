@@ -16,6 +16,7 @@ import { DataAdminComponent } from './components/data-admin/data-admin.component
 import { EntityFormComponent } from './components/entity-form/entity-form.component';
 import { FormatFormValuePipe } from './pipes/format-form-value.pipe';
 import { FormatTypeValuePipe } from './pipes/format-type-value.pipe';
+import { ImageViewComponent } from './components/image-view/image-view.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FormatTypeValuePipe } from './pipes/format-type-value.pipe';
     DataAdminComponent,
     EntityFormComponent,
     FormatFormValuePipe,
-    FormatTypeValuePipe
+    FormatTypeValuePipe,
+    ImageViewComponent
   ],
   imports: [
     BrowserModule,
