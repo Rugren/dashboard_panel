@@ -85,7 +85,7 @@ export class DataAdminComponent implements OnInit {
       next: (value: any) => {
         // en el tutorial puso .data, nombrado .dataId por mi para hacerlo más descriptivo.
         this.dataId = value.results; // Para que nos dé directamente los resultados (se ve por consola, si se quita results nos aparecen más cosas como "isSuccess: true" y "ok: true")
-        console.log("El dataId es:", this.dataId);
+        console.log("El dataId (todos los datos de un id producto) es:", this.dataId);
       },
       error: (err: any) => {
         // console.log("Error en el dataId", err);

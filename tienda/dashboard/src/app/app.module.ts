@@ -13,6 +13,7 @@ import { FormatNamePipe } from './pipes/format-name.pipe';
 import { FormatValueImagePipe } from './pipes/format-value-image.pipe';
 import { FiltrarNombrePipe } from './pipes/filtrar-nombre.pipe';
 import { DataAdminComponent } from './components/data-admin/data-admin.component';
+import { EntityFormComponent } from './components/entity-form/entity-form.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { DataAdminComponent } from './components/data-admin/data-admin.component
     FormatNamePipe,
     FormatValueImagePipe,
     FiltrarNombrePipe,
-    DataAdminComponent
+    DataAdminComponent,
+    EntityFormComponent
   ],
   imports: [
     BrowserModule,
