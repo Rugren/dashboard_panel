@@ -5,8 +5,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FormatFormValuePipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  transform(nombre: any, dataId: any): any {
+    // retornamos los valores que encuentre en nombre
+    return dataId[nombre];
   }
 
 }
+
+
+

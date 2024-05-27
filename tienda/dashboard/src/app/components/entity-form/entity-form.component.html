@@ -2,8 +2,9 @@
 <form action action="">
     <div *ngFor="let nombre of entityNames">
         <label for="">
-            {{nombre | formatName }}
+            {{ nombre | formatName }}
         </label>
+        <input type="text" [value]="nombre | formatFormValue: dataId">
     
     </div>
 </form>
