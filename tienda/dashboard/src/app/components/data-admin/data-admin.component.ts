@@ -83,6 +83,7 @@ export class DataAdminComponent implements OnInit {
   getDataId() {
     this.entityService.getDataID(this.entity, this.entityId).subscribe({
       next: (value: any) => {
+        // en el tutorial puso .data, nombrado .dataId por mi para hacerlo más descriptivo.
         this.dataId = value.results; // Para que nos dé directamente los resultados (se ve por consola, si se quita results nos aparecen más cosas como "isSuccess: true" y "ok: true")
         console.log("El dataId es:", this.dataId);
       },
@@ -91,6 +92,10 @@ export class DataAdminComponent implements OnInit {
         console.error("Error en el dataId", err);
       }
     })
+  }
+
+  getValue(nombre: any) {
+    return this.dataId[nombre];
   }
 
 

@@ -1,2 +1,11 @@
 <!-- <p>data-admin works!</p> -->
-{{ pageName }}
+<p>{{ pageName }}</p>
+
+<div *ngIf="dataId">
+    <ul>
+        <li *ngFor="let nombre of entityNameAll">
+            <strong>{{nombre | formatName }} </strong>
+            <div [innerHTML]="getValue(nombre) | formatValueImage:nombre"></div>
+        </li>
+    </ul>
+</div>
