@@ -2,10 +2,16 @@
 <p>{{ pageName }}</p>
 
 <div *ngIf="dataId">
-    <ul>
+    <ul *ngIf="action=='ver'">
         <li *ngFor="let nombre of entityNameAll">
             <strong>{{nombre | formatName }} </strong>
             <div [innerHTML]="getValue(nombre) | formatValueImage:nombre"></div>
         </li>
     </ul>
+
+    <app-entity-form 
+    *ngIf="action=='editar'"
+    [entityNames]="entityNameAll"
+    [dataId]="dataId"
+    />
 </div>

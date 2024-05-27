@@ -97,7 +97,7 @@ export class DataAdminComponent implements OnInit {
   getValue(nombre: any) {
     return this.dataId[nombre];
   }
-
+  
 
 }
 

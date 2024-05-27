@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-entity-form',
@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrl: './entity-form.component.css'
 })
 export class EntityFormComponent {
+
+  @Input() entityNames: Array<any> = []
+  @Input() dataId: any;
 
 }
