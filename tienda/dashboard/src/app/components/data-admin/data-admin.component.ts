@@ -4,6 +4,7 @@ import { routes } from '../../helpers/routes';
 import { actions } from '../../helpers/actions';
 import { formatToCamelCase } from '../../helpers/utils';
 import { getEntityProperties } from '../../helpers/helpers';
+import { EntityService } from '../../services/entity.service';
 
 @Component({
   selector: 'app-data-admin',
@@ -23,7 +24,9 @@ export class DataAdminComponent implements OnInit {
   pageName: any;
   entityNameAll: any;
 
-  constructor(private route: ActivatedRoute, private router: Router) {
+  dataId: any;
+
+  constructor(private route: ActivatedRoute, private router: Router, private entityService: EntityService) {
     /* 1.0 Hacer click en alguna acción (ver, editar o cerrar) y en la consola del navegador ver ActivatedRoute, 
     abrir, click en la url y ver "_value", que nos mostrará los 3 path, los 3 parámetros que hemos pasado (la ruta pagePath, la id, la action;
     por ejemplo /productos/64cd45541d350d132060a192/Ver ) */
@@ -73,8 +76,22 @@ export class DataAdminComponent implements OnInit {
 
       this.entityNameAll = getEntityProperties(this.entity);
       console.log("El entityNameAll muestra todos los campos que tenemos en la Base de datos:", this.entityNameAll)
+      this.getDataId()
   }
 
+
+  getDataId() {
+    this.entityService.getDataID(this.entity, this.entityId).subscribe({
+      next: (value: any) => {
+        this.dataId = value.results; // Para que nos dé directamente los resultados (se ve por consola, si se quita results nos aparecen más cosas como "isSuccess: true" y "ok: true")
+        console.log("El dataId es:", this.dataId);
+      },
+      error: (err: any) => {
+        // console.log("Error en el dataId", err);
+        console.error("Error en el dataId", err);
+      }
+    })
+  }
 
 
 }

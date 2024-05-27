@@ -16,4 +16,8 @@ export class EntityService {
     return this.http.get(this.apiUrl + entityName)
   }
 
+  getDataID(entityName: string, id: string) {
+    return this.http.get(this.apiUrl + entityName + "/" + id);
+  }
+
 }
