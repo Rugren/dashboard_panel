@@ -4,7 +4,15 @@
         <label for="">
             {{ nombre | formatName }}
         </label>
-        <input type="text" [value]="nombre | formatFormValue: dataId">
+        <input *ngIf="(nombre | formatTypeValue: dataId) === 'INPUT'"
+        [name]="nombre"
+        type="text" [value]="nombre | formatFormValue: dataId">
     
+        <select *ngIf="(nombre | formatTypeValue: dataId) === 'SELECT'"
+        [name]="nombre"
+        id="">
+            <option [value]="true">Si</option>
+            <option [value]="false">No</option>
+        </select>
     </div>
 </form>
