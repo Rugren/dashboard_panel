@@ -1,8 +1,97 @@
 <!-- <p>image-view works!</p> -->
 <!-- {{ imageUrls | json }} -->
 
+<!-- Hace el recorrido por todas las url de las imágenes para mostrarlas (Comentado porque lo he trasladado abajo todo) - ->
 <div *ngFor="let url of imageUrls">
     <img [src]="url" alt="">
     <button>Cargar</button>
     <button>Eliminar</button>
+</div> -->
+
+<!-- Parte de este div traído del archivo ui-cards.html 
+    Buscar "For the code click on above code icon" para localizar el apartado (he dejado un comentario en la línea 582)
+    (editados y/o borrados algunos apartados) -->
+
+<!-- Row -->
+<div class="row">
+    <div class="col-12">
+        <div id="code1" class="collapse">
+            <div class="highlight">
+                <pre>
+    <code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card"</span> <span class="na">style=</span><span class="s">"width: 20rem;"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"card-img-top"</span> <span class="na">src=</span><span class="s">"..."</span> <span class="na">alt=</span><span class="s">"Card image cap"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card-body"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">"card-title"</span><span class="nt">&gt;</span>Card title<span class="nt">&lt;/h4&gt;</span>
+        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"card-text"</span><span class="nt">&gt;</span>Some quick example text to build on the card title and make up the bulk of the card's content.<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span><span class="nt">&gt;</span>Go somewhere<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span></code>
+</pre>
+            </div>
+        </div>
+        <!-- Row -->
+        <div class="row">
+            <!-- column -->
+            <div class="col-lg-3 col-md-6" *ngFor="let url of imageUrls">
+                <!-- Card -->
+                <div class="card">
+                    <img class="card-img-top img-responsive" [src]="url" alt="">
+
+                    <!-- Este <div> era el <td> traído de container.component.html -->
+                    <!-- <td class="text-nowrap"> -->
+                    <div class="text-nowrap align-self-center">
+                        <a data-toggle="tooltip" data-original-title="Edit">
+                            <i class="fa fa-pencil-square m-r-2" aria-hidden="true" ></i> Editar | </a>
+                        <!-- trash será el botón de borrado, el de papelera "fa fa-trash" -->
+                        <a data-toggle="tooltip" data-original-title="Trash">
+                            <i class="fa fa-trash text-inverse m-r-2"></i> Borrar</a>
+                    </div>
+                    
+                </div>
+                <!-- Card -->
+            </div>
+            
+            <!-- column -->
+        <!-- 
+            <div class="col-lg-3 col-md-6 img-responsive">
+                <! -- Card -- >
+                <div class="card">
+                    <img class="card-img-top img-responsive" src="../assets/images/big/img4.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h4 class="card-title">Card title</h4>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+                <! -- Card -- >
+            </div>
+        -->
+            <!-- column -->
+        </div>
+        <!-- Row -->
+    </div>
 </div>
+<!-- End Row -->
+
+
+<!-- Todo esto es lo necesario para ver el lápiz botón de editar y el Trash (la papelera) botón de borrar
+Traído de de container.component.html (copiado lo mismo para que ve vean iconos) -->
+
+<!-- AGREGADOS LOS SCRIPTS PARA QUE COGAN LOS ESTILOS Y FORMAS EN LOS ICONOS, entre otros -->
+<!-- Agrega jQuery (si aún no está incluido) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Agrega Font Awesome (si aún no está incluido) -->
+<!-- Reemplaza 'versión' con la versión específica que estés utilizando -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<!-- Después de incluir jQuery y Font Awesome, agrega el script de inicialización de tooltips 
+Este tooltips es para que se vean los iconos de Ver, Editar y Cerrar
+En referencia a: <a data-toggle="tooltip" data-original-title="Ver"> 
+-->
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>

@@ -1,14 +1,15 @@
 <!-- <p>entity-form works!</p> -->
-<form action action="">
-    <div *ngFor="let nombre of entityNames">
-        <label for="">
+
+<form action="">
+    <div class="form-group" *ngFor="let nombre of entityNames">
+        <label class="control-label">
             {{ nombre | formatName }}
         </label>
-        <input *ngIf="(nombre | formatTypeValue: dataId) === 'INPUT'"
+        <input class="form-control" *ngIf="(nombre | formatTypeValue: dataId) === 'INPUT'"
         [name]="nombre"
         type="text" [value]="nombre | formatFormValue: dataId">
     
-        <select *ngIf="(nombre | formatTypeValue: dataId) === 'SELECT'"
+        <select class="form-control" *ngIf="(nombre | formatTypeValue: dataId) === 'SELECT'"
         [name]="nombre"
         id="">
             <option [value]="true">Si</option>

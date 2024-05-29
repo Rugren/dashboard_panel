@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+
+/*  Para que todo lo que tenga la etiqueta de enlace <a>, 
+    que aparezca la "mano" cada que pasamos el cursor por encima */
+a {
+    cursor: pointer;
+}
+
