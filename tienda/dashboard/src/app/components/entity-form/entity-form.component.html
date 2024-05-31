@@ -1,25 +1,32 @@
 <!-- <p>entity-form works!</p> -->
 
-<form action="">
+<!-- El [formGroup]="form" nos trae form de entity-form.component.ts -->
+<form action="" [formGroup]="form">
     <div class="form-group" *ngFor="let nombre of entityNames">
         <label class="control-label">
             {{ nombre | formatName }}
         </label>
         <input class="form-control" *ngIf="(nombre | formatTypeValue: dataId) === 'INPUT'"
         [name]="nombre"
-        type="text" [value]="nombre | formatFormValue: dataId">
+        type="text" [value]="nombre | formatFormValue: dataId"
+        [formControlName]="nombre"> <!-- este formControlName (y el otro de abajo) nos traerá "nombre" de la función initForm (en entity-form.component.ts) -->
     
         <select class="form-control" *ngIf="(nombre | formatTypeValue: dataId) === 'SELECT'"
         [name]="nombre"
+        [formControlName]="nombre"
         id="">
             <option [value]="true">Si</option>
             <option [value]="false">No</option>
         </select>
+
         <div *ngIf="(nombre | formatTypeValue: dataId) === 'IMG'">
             <!-- <img [src]="nombre | formatTypeValue: dataId" [alt]="nombre | formatTypeValue: dataId"> -->
             <app-image-view 
             [imageUrls]="nombre | formatFormValue: dataId"
             />
         </div>
+
     </div>
+    <button class="btn btn-secondary m-r-20">Cancelar</button>
+    <button class="btn btn-primary m-r-20" (click)="handleSubmit()">Actualizar</button>
 </form>
