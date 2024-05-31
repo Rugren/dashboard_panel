@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { EntityService } from '../../services/entity.service';
 
 @Component({
   selector: 'app-entity-form',
@@ -12,8 +13,9 @@ export class EntityFormComponent implements OnInit {
   @Input() dataId: any;
 
   form: any;
+  categorias: any;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private entityService:EntityService) { }
   
   ngOnInit(): void {
 
@@ -31,6 +33,22 @@ export class EntityFormComponent implements OnInit {
       return true;
       /* Poniendo esto también funcionaría: 
       return nombre !== 'created_at' && nombre !== 'updated_at'; */
+    })
+
+
+    // Para traer categorías
+    this.entityService.getDatas('categorias').subscribe({
+      next: (data: any) => {
+        const { isSuccess, results } = data;
+        if (isSuccess && results) {
+          this.categorias = results;
+        console.log('Nuestra categoria que traemos de data', this.categorias)
+        }
+        // console.log('Nuestra data que traemos de categorias', data)
+      },
+      error: (error: any) => {
+        console.log(error)
+      }
     })
 
     // Inicializar el formulario creado. Para que al inicializar también coja la función de "initForm()" hecha abajo.
@@ -62,7 +80,7 @@ export class EntityFormComponent implements OnInit {
     // Esto es para ver si me coje los datos y me los guarda(no en la BD) cuando los edito (Dándole al botón de "Actualizar")
     console.log(this.form.value)
   }
-  
+
 
 
 }

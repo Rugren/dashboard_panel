@@ -4,7 +4,8 @@ enum Type {
   INPUT = "INPUT",
   SELECT = "SELECT",
   TEXT = "TEXT",
-  IMG = "IMG"
+  IMG = "IMG",
+  CATEGORIA = "CATEGORIA"
 }
 
 @Pipe({
@@ -31,6 +32,10 @@ export class FormatTypeValuePipe implements PipeTransform {
     que me traiga un typado que le pertenece a Type.IMG */
     if(nombre === 'imageUrls'){
       type = Type.IMG
+    }
+
+    if(nombre === 'categoria'){
+      type = Type.CATEGORIA
     }
 
     if(selectDatas.includes(nombre)){
