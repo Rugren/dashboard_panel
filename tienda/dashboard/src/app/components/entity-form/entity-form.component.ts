@@ -2,6 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { EntityService } from '../../services/entity.service';
 
+// Para que funcione el .js de la función "initSelect" 
+declare var $: any;
+
 @Component({
   selector: 'app-entity-form',
   templateUrl: './entity-form.component.html',
@@ -53,6 +56,8 @@ export class EntityFormComponent implements OnInit {
 
     // Inicializar el formulario creado. Para que al inicializar también coja la función de "initForm()" hecha abajo.
     this.initForm()
+    // Inicializar la función de seleccionar las categorías
+    this.initSelect()
   }
 
 
@@ -73,6 +78,15 @@ export class EntityFormComponent implements OnInit {
     console.log(formObject)
     // Nuestro form(arriba declarado) va a ser igual a lo que fb nos traiga agrupado del formObject.
     this.form = this.fb.group(formObject)
+  }
+
+  /* Función para arrancar el código del select2 https://select2.org/getting-started/basic-usage copiar lo de "In your Javascript"
+  declarar el $ arriba */
+  initSelect() {
+    $(document).ready(function () {
+      // $('.js-example-basic-multiple').select2();
+      $('.select-category').select2();
+    });
   }
 
   // Función manejo de envíos (Para el botón de "Actualizar")

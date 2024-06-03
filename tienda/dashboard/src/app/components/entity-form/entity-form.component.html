@@ -19,9 +19,12 @@
             <option [value]="false">No</option>
         </select>
 
-        <!-- Desplegable de categorías disponibles -->
+        <!-- Desplegable de categorías disponibles https://select2.org/getting-started/basic-usage ver lo de "In your HTML" -->
         <div *ngIf="(nombre | formatTypeValue: dataId) === 'CATEGORIA'">
-            <select class="form-control">
+            <select class="form-control select-category"
+            name="categorias[]"
+                multiple="multiple"
+            >
                 <option *ngFor="let categoria of categorias" [value]="categoria._id">{{ categoria.nombre }}</option>
             </select>
         </div>
