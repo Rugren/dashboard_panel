@@ -23,9 +23,12 @@
         <div *ngIf="(nombre | formatTypeValue: dataId) === 'CATEGORIA'">
             <select class="form-control select-category"
             name="categorias[]"
-                multiple="multiple"
+            multiple="multiple"
             >
-                <option *ngFor="let categoria of categorias" [value]="categoria._id">{{ categoria.nombre }}</option>
+                <option *ngFor="let categoria of categorias" 
+                [value]="categoria._id"
+                [selected]="selectCategorias.includes(categoria._uid)"
+                >{{ categoria.nombre }}</option>
             </select>
         </div>
 

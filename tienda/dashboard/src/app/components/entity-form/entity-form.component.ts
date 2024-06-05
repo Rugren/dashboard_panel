@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { EntityService } from '../../services/entity.service';
 
@@ -17,6 +17,9 @@ export class EntityFormComponent implements OnInit {
 
   form: any;
   categorias: any;
+  selectCategorias: any;
+
+  @Output() formEmit = new EventEmitter<any>;
 
   constructor(private fb: FormBuilder, private entityService:EntityService) { }
   
@@ -44,8 +47,11 @@ export class EntityFormComponent implements OnInit {
       next: (data: any) => {
         const { isSuccess, results } = data;
         if (isSuccess && results) {
+
+          this.selectCategorias = data.results;
+
           this.categorias = results;
-        console.log('Nuestra categoria que traemos de data', this.categorias)
+        console.log('Nuestra categoria que traemos de data (Coge y muestra todos los datos de todas las categorías)', this.categorias)
         }
         // console.log('Nuestra data que traemos de categorias', data)
       },
@@ -75,7 +81,7 @@ export class EntityFormComponent implements OnInit {
     })
     /* [clg + tab y nos crea el console.log automáticamente]
     Creado para ver qué nos está trayendo */
-    console.log(formObject)
+    console.log('El formObject', formObject)
     // Nuestro form(arriba declarado) va a ser igual a lo que fb nos traiga agrupado del formObject.
     this.form = this.fb.group(formObject)
   }
@@ -83,16 +89,43 @@ export class EntityFormComponent implements OnInit {
   /* Función para arrancar el código del select2 https://select2.org/getting-started/basic-usage copiar lo de "In your Javascript"
   declarar el $ arriba */
   initSelect() {
+    const self = this;
+    
     $(document).ready(function () {
       // $('.js-example-basic-multiple').select2();
+      // Inicializa el select2 en el elemento con clase 'select-category'
       $('.select-category').select2();
+
+      /* Evento para manejar la selección
+      .on es para que esté dentro de nuestra parte del select 
+      NO CAMBIAR nombre "values" o "val" (tiene que ser esos) */
+      $('.select-category').on('select2:select', function(event: any){
+        const values = $('.select-category').select2('val')
+        console.log('Valores de Categoria: ', values)
+        // Asignar el valor seleccionado a la propiedad category
+        self.form.value["categoria"] = values
+      })
+
+      // "unselect" para que no limpie el campo 
+      $('.select-category').on('select2:unselect', function(event: any){
+        const values = $('.select-category').select2('val')
+        console.log('Valores de Categoria: ', values)
+        self.form.value["categoria"] = values
+      })
     });
   }
 
   // Función manejo de envíos (Para el botón de "Actualizar")
   handleSubmit() {
-    // Esto es para ver si me coje los datos y me los guarda(no en la BD) cuando los edito (Dándole al botón de "Actualizar")
-    console.log(this.form.value)
+    const data = {...this.form.value};
+
+    // Emite el evento con el tipo y los datos del formulario
+    this.formEmit.emit({ type: 'NORMAL', form: data})
+
+    /* Imprime los datos del formulario y el objeto formulario en la consola
+    El form.value es para ver si me coje los datos y me los guarda(no en la BD) cuando los edito (Dándole al botón de "Actualizar") */
+    console.log("El form.value", this.form.value)
+    console.log("El form", this.form)
   }
 
 
